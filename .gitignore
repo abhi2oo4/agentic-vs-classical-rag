@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Personal library cheat sheets (local revision notes, not for GitHub)
+cheatsheets/
+
+# Pipeline data artifacts (regenerable from src/ — too large for git)
+data/
+
+# Credentials / keys — never commit
+Test-User-01_credentials.csv
+rag-key.pem
+test-tier-key.pem
