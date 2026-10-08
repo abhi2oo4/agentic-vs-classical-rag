@@ -221,7 +221,9 @@ __marimo__/
 cheatsheets/
 
 # Pipeline data artifacts (regenerable from src/ — too large for git)
-data/
+data/*
+!data/results/
+!data/results/**
 
 # Credentials / keys — never commit
 Test-User-01_credentials.csv
