@@ -1,9 +1,7 @@
 import numpy as np
 import faiss
 import pandas as pd
-from sentence_transformers import SentenceTransformer
-
-model=SentenceTransformer("BAAI/bge-m3")
+from embedding import model
 
 def build_index(corpus):
     # shape for the embedding matrix as they only accept numpy arrays

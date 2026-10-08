@@ -1,0 +1,21 @@
+services : 
+  vllm : 
+    image : vllm/vllm-openai:latest
+    command : ["--model", "Qwen/Qwen2.5-3B-Instruct-AWQ"]
+    ports:
+      - "8000:8000"                        # host:container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+  app : 
+    build: .
+    depends_on:
+      - vllm 
+    environment:
+      - VLLM_URL=http://vllm:8000/v1
+    volumes:
+      - ./data:/app/data 

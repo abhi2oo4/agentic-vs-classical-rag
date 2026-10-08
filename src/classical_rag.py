@@ -2,8 +2,9 @@ from openai import AsyncOpenAI
 import asyncio
 from vector_store import *
 import time
+import os
 
-client = AsyncOpenAI(base_url="http://localhost:8000/v1",api_key="not-needed")
+client = AsyncOpenAI(base_url=os.environ.get("VLLM_URL", "http://localhost:8000/v1"), api_key="not-needed")
 
 
 semaphore=asyncio.Semaphore(5)

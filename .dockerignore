@@ -1,0 +1,7 @@
+venv/
+data/
+.git/
+cheatsheets/
+__pycache__/
+*.pem
+*credentials*.csv

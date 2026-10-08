@@ -7,10 +7,11 @@ from openai import AsyncOpenAI
 import time
 import asyncio
 from langgraph.graph import StateGraph, END
+import os
 
 
 
-client=AsyncOpenAI(base_url="http://localhost:8000/v1",api_key="not-needed")
+client=AsyncOpenAI(base_url=os.environ.get("VLLM_URL", "http://localhost:8000/v1"), api_key="not-needed")
 index=load_index('../data/processed/VectorDB.index')
 corpus=pd.read_parquet('../data/processed/final_corpus_embed.parquet')
 semaphore=asyncio.Semaphore(5)
